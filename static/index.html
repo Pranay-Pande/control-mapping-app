@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Mapping | AI-Powered Compliance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="url(#logo-gradient)"/>
+                        <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop stop-color="#C2410C"/>
+                                <stop offset="1" stop-color="#166534"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">ControlMap</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-step="1">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Upload</span>
+                    <span class="nav-status"></span>
+                </a>
+                <a href="#" class="nav-item" data-step="2">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Configure</span>
+                    <span class="nav-status"></span>
+                </a>
+                <a href="#" class="nav-item" data-step="3">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Process</span>
+                    <span class="nav-status"></span>
+                </a>
+                <a href="#" class="nav-item" data-step="4">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Export</span>
+                    <span class="nav-status"></span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="version-badge">v2.0</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Step 1: Upload -->
+            <section id="step-1" class="step-panel active">
+                <div class="step-hero">
+                    <div class="hero-content">
+                        <div class="hero-badge">Step 1 of 4</div>
+                        <h1 class="hero-title">Upload Your Framework</h1>
+                        <p class="hero-description">Import your compliance framework document to begin mapping controls to cloud security checks.</p>
+                    </div>
+
+                    <div class="upload-card glass-card">
+                        <div class="upload-zone" id="upload-zone">
+                            <div class="upload-visual">
+                                <div class="upload-rings">
+                                    <div class="ring ring-1"></div>
+                                    <div class="ring ring-2"></div>
+                                    <div class="ring ring-3"></div>
+                                </div>
+                                <div class="upload-icon-wrapper">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 16V4"/>
+                                        <path d="M7 9l5-5 5 5"/>
+                                        <path d="M20 21H4"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="upload-text">
+                                <p class="upload-primary">Drop your file here</p>
+                                <p class="upload-secondary">or <label for="file-input" class="upload-browse">browse files</label></p>
+                            </div>
+                            <div class="upload-formats">
+                                <span class="format-tag">PDF</span>
+                                <span class="format-tag">CSV</span>
+                                <span class="format-tag">Excel</span>
+                                <span class="format-tag">JSON</span>
+                                <span class="format-tag">TXT</span>
+                            </div>
+                            <input type="file" id="file-input" accept=".pdf,.csv,.xlsx,.xls,.json,.txt" hidden>
+                        </div>
+
+                        <div id="upload-progress" class="upload-progress-section hidden">
+                            <div class="file-preview">
+                                <div class="file-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                    </svg>
+                                </div>
+                                <div class="file-details">
+                                    <span class="file-name">document.pdf</span>
+                                    <span class="file-size">2.4 MB</span>
+                                </div>
+                                <div class="file-status">
+                                    <div class="progress-ring">
+                                        <svg viewBox="0 0 36 36">
+                                            <circle class="progress-ring-bg" cx="18" cy="18" r="16"/>
+                                            <circle class="progress-ring-fill" cx="18" cy="18" r="16"/>
+                                        </svg>
+                                        <span class="progress-text">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="upload-success" class="upload-success-section hidden">
+                            <div class="success-indicator">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div class="success-details">
+                                <span class="success-title">File uploaded successfully</span>
+                                <span class="success-file" id="success-filename">framework.pdf</span>
+                            </div>
+                            <button class="btn btn-text" id="change-file">Change file</button>
+                        </div>
+                    </div>
+
+                    <div id="preview-panel" class="preview-panel glass-card hidden">
+                        <div class="panel-header">
+                            <h3>Document Preview</h3>
+                            <span class="preview-badge">First 500 characters</span>
+                        </div>
+                        <pre class="preview-content" id="preview-content"></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Configure -->
+            <section id="step-2" class="step-panel">
+                <div class="step-header">
+                    <div class="step-header-left">
+                        <div class="step-badge">Step 2 of 4</div>
+                        <h1 class="step-title">Configure Mapping</h1>
+                        <p class="step-description">Set up your framework details and select target cloud providers.</p>
+                    </div>
+                </div>
+
+                <div class="config-layout">
+                    <!-- Left Column: Framework Settings -->
+                    <div class="config-column">
+                        <div class="config-section glass-card">
+                            <div class="section-header">
+                                <h3>Framework Details</h3>
+                            </div>
+                            <div class="section-body">
+                                <div class="form-grid">
+                                    <div class="form-field">
+                                        <label for="framework-name">Framework Name <span class="required">*</span></label>
+                                        <input type="text" id="framework-name" placeholder="e.g., IRDAI or CIS_AWS" required>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="framework-version">Version</label>
+                                        <input type="text" id="framework-version" placeholder="e.g., 1.4.0">
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="framework-full-name">Full Name <span class="optional">(optional)</span></label>
+                                    <input type="text" id="framework-full-name" placeholder="Full framework name - auto-generated if empty">
+                                </div>
+                                <div class="form-field">
+                                    <label for="framework-description">Description <span class="optional">(optional)</span></label>
+                                    <textarea id="framework-description" rows="3" placeholder="Custom description for this mapping"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Field Mappings Accordion -->
+                        <div class="config-section glass-card">
+                            <button class="section-header collapsible" id="field-mappings-toggle">
+                                <h3>Field Mappings</h3>
+                                <span class="collapse-hint">Tell Claude where to find your data</span>
+                                <svg class="collapse-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            <div class="section-body collapsible-content" id="field-mappings-content">
+                                <div class="mappings-grid">
+                                    <div class="mapping-row">
+                                        <div class="form-field compact">
+                                            <label>Control ID Field</label>
+                                            <input type="text" id="id-field" placeholder="e.g., Recommendation #">
+                                        </div>
+                                        <div class="form-field compact">
+                                            <label>ID Format Example</label>
+                                            <input type="text" id="id-format-example" placeholder="e.g., AC-2.1">
+                                        </div>
+                                    </div>
+                                    <div class="mapping-row">
+                                        <div class="form-field compact">
+                                            <label>Control Name Field</label>
+                                            <input type="text" id="name-field" placeholder="e.g., Title">
+                                        </div>
+                                        <div class="form-field compact">
+                                            <label>Name Format Example</label>
+                                            <input type="text" id="name-format-example" placeholder="e.g., Access Control">
+                                        </div>
+                                    </div>
+                                    <div class="mapping-row">
+                                        <div class="form-field compact">
+                                            <label>Section Field</label>
+                                            <input type="text" id="section-field" placeholder="e.g., Section">
+                                        </div>
+                                        <div class="form-field compact">
+                                            <label>Section Format</label>
+                                            <input type="text" id="section-format-example" placeholder="e.g., 2.0 Security">
+                                        </div>
+                                    </div>
+                                    <div class="mapping-row">
+                                        <div class="form-field compact">
+                                            <label>SubSection Field</label>
+                                            <input type="text" id="subsection-field" placeholder="e.g., SubSection">
+                                        </div>
+                                        <div class="form-field compact">
+                                            <label>SubSection Format</label>
+                                            <input type="text" id="subsection-format-example" placeholder="e.g., 2.1 Data">
+                                        </div>
+                                    </div>
+                                    <div class="mapping-row" id="subgroup-row">
+                                        <div class="form-field compact">
+                                            <label>SubGroup Field</label>
+                                            <input type="text" id="subgroup-field" placeholder="e.g., SubGroup">
+                                        </div>
+                                        <div class="form-field compact">
+                                            <label>SubGroup Format</label>
+                                            <input type="text" id="subgroup-format-example" placeholder="e.g., 2.1.1">
+                                        </div>
+                                    </div>
+                                    <div class="mapping-row">
+                                        <div class="form-field compact">
+                                            <label>Description Field</label>
+                                            <input type="text" id="description-field" placeholder="e.g., Description">
+                                        </div>
+                                        <div class="form-field compact">
+                                            <label>Description Format</label>
+                                            <input type="text" id="description-format-example" placeholder="e.g., The org shall...">
+                                        </div>
+                                    </div>
+                                    <div class="mapping-row single">
+                                        <div class="form-field compact">
+                                            <label>Service Field <span class="optional">(optional)</span></label>
+                                            <input type="text" id="service-field" placeholder="e.g., Service">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-setting">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="enableSubGroup" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <div class="toggle-info">
+                                        <span class="toggle-label">Enable SubGroup Field</span>
+                                        <span class="toggle-hint">When disabled, sub-sections merge into parent controls</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="custom-instructions">Additional Instructions</label>
+                                    <textarea id="custom-instructions" rows="2" placeholder="e.g., Focus on Level 1 controls only"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Provider Selection -->
+                    <div class="config-column">
+                        <div class="config-section glass-card providers-section">
+                            <div class="section-header">
+                                <h3>Target Providers</h3>
+                                <label class="select-all-toggle">
+                                    <input type="checkbox" id="select-all-providers">
+                                    <span>Select All</span>
+                                </label>
+                            </div>
+                            <div class="section-body">
+                                <div class="providers-grid" id="provider-list">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                                <div class="providers-summary" id="provider-summary">
+                                    Select at least one provider
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sticky Footer -->
+                <div class="config-footer">
+                    <div class="footer-info">
+                        <span id="config-status">Ready to configure</span>
+                    </div>
+                    <button class="btn btn-primary btn-lg" id="save-config">
+                        Save & Continue
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 3: Process -->
+            <section id="step-3" class="step-panel">
+                <div class="step-header">
+                    <div class="step-header-left">
+                        <div class="step-badge">Step 3 of 4</div>
+                        <h1 class="step-title">Processing Mappings</h1>
+                        <p class="step-description">AI is analyzing your framework and mapping controls to cloud security checks.</p>
+                    </div>
+                </div>
+
+                <div class="process-layout">
+                    <!-- Overall Progress -->
+                    <div class="overall-progress glass-card">
+                        <div class="progress-header">
+                            <div class="progress-info">
+                                <span class="progress-label">Overall Progress</span>
+                                <span class="progress-value" id="overall-progress-text">0%</span>
+                            </div>
+                            <div class="progress-stats">
+                                <span id="jobs-completed">0</span> / <span id="jobs-total">0</span> providers
+                            </div>
+                        </div>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar" id="overall-progress-bar"></div>
+                        </div>
+                        <div class="progress-message" id="progress-message">Initializing...</div>
+                    </div>
+
+                    <!-- Provider Cards Grid -->
+                    <div class="providers-dashboard" id="providers-dashboard">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <!-- Start Button (shown before processing) -->
+                    <div class="process-actions" id="process-actions">
+                        <div class="process-summary glass-card">
+                            <div class="summary-row">
+                                <span class="summary-label">Framework</span>
+                                <span class="summary-value" id="summary-framework">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">File</span>
+                                <span class="summary-value" id="summary-file">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Providers</span>
+                                <span class="summary-value" id="summary-providers">-</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-xl" id="start-mapping">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            Start Mapping
+                        </button>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div class="error-display glass-card hidden" id="mapping-error">
+                        <div class="error-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                            </svg>
+                        </div>
+                        <div class="error-content">
+                            <h4>Processing Error</h4>
+                            <p class="error-message" id="error-message"></p>
+                        </div>
+                        <button class="btn btn-secondary" id="retry-mapping">Retry</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: Export -->
+            <section id="step-4" class="step-panel">
+                <div class="export-hero">
+                    <div class="success-animation">
+                        <div class="success-rings">
+                            <div class="success-ring ring-1"></div>
+                            <div class="success-ring ring-2"></div>
+                            <div class="success-ring ring-3"></div>
+                        </div>
+                        <div class="success-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h1 class="export-title">Mapping Complete!</h1>
+                    <p class="export-subtitle" id="export-subtitle">Your compliance framework has been mapped successfully.</p>
+                </div>
+
+                <div class="export-stats">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="stat-controls">0</div>
+                        <div class="stat-label">Total Controls</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="stat-mapped">0</div>
+                        <div class="stat-label">With Checks</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="stat-providers">0</div>
+                        <div class="stat-label">Providers</div>
+                    </div>
+                </div>
+
+                <div class="export-actions">
+                    <button class="btn btn-primary btn-xl download-main" id="download-zip">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download All Results (.zip)
+                    </button>
+                </div>
+
+                <div class="export-files glass-card">
+                    <div class="files-header">
+                        <h3>Individual Downloads</h3>
+                    </div>
+                    <div class="files-grid" id="download-files">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="export-footer">
+                    <button class="btn btn-text" id="start-new">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="1 4 1 10 7 10"/>
+                            <path d="M3.51 15a9 9 0 102.13-9.36L1 10"/>
+                        </svg>
+                        Start New Mapping
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

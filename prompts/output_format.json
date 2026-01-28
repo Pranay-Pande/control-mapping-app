@@ -1,0 +1,24 @@
+{
+  "Framework": "framework_name",
+  "Name": "Full framework name",
+  "Version": "framework_version",
+  "Provider": "provider_name",
+  "Description": "Brief description of this mapping",
+  "Requirements": [
+    {
+      "Id": "ac_2_1",
+      "Name": "Account Management | Automated System Account Management",
+      "Description": "Detailed description from the framework document",
+      "Attributes": [
+        {
+          "ItemId": "ac_2_1",
+          "Section": "Access Control (AC)",
+          "SubSection": "Account Management (AC-2)",
+          "SubGroup": "",
+          "Service": "iam"
+        }
+      ],
+      "Checks": ["iam_root_mfa_enabled", "iam_user_mfa_enabled"]
+    }
+  ]
+}
