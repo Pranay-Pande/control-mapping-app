@@ -207,10 +207,10 @@ providers/
 │   └── services/
 │       ├── iam/
 │       │   └── iam_root_mfa_enabled/
-│       │       └── iam_root_mfa_enabled_metadata.json
+│       │       └── iam_root_mfa_enabled.metadata.json
 │       └── s3/
 │           └── s3_bucket_encryption/
-│               └── s3_bucket_encryption_metadata.json
+│               └── s3_bucket_encryption.metadata.json
 ├── gcp/
 │   └── services/
 │       └── ...
